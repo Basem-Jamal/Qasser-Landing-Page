@@ -1,5 +1,10 @@
 // تأثير الظهور عند التمرير
 document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById("snapBtn").addEventListener("click" , function(event){
+        event.preventDefault();
+        alert("لازال الرابط لا يعمل  بنتظار الرابط من الاستاذ علي")
+    })
     const fadeElements = document.querySelectorAll('.fade-in');
     
     const fadeInOnScroll = function() {
@@ -15,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // تشغيل التأثير عند التحميل
     fadeInOnScroll();
-    
     // تشغيل التأثير عند التمرير
     window.addEventListener('scroll', fadeInOnScroll);
     

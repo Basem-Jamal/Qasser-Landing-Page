@@ -14,6 +14,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
     color: var(--dark-color);
@@ -44,12 +48,15 @@ header {
 }
 
 .tagline {
-    font-size: 1.2rem;
+    position: relative;
+    font-size: 1.7rem;
     color: var(--secondary-color);
-    margin-bottom: 30px;
+    top: 100px;
+    margin-bottom: 50px;
 }
 
 .iconsForArrow  {
+    margin-top:200px ;
 }
 .IconArrowRight , .IconArrowLeft{
     width: 100px;
@@ -136,6 +143,12 @@ header {
     background: rgba(0, 0, 0, 0.1);
     color: #000000;
 }
+.snapchat .social-icon {
+    background: rgba(255, 252, 0, 0.15);
+    color: #FFFC00;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
 
 .social-card:hover .social-icon {
     transform: scale(1.1);
@@ -194,6 +207,12 @@ header {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+.snapchat .btn {
+    background: #FFFC00;
+    color: #000;
+}
+
+
 
 footer {
     text-align: center;
@@ -263,3 +282,4 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
