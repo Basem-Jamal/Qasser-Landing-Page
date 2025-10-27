@@ -1,6 +1,6 @@
 :root {
     --primary-color: #c69b91;
-    --secondary-color: #000;
+    --secondary-color: #ffffff;
     --accent-color: #f72585;
     --light-color: #f8f9fa;
     --dark-color: #212529;
@@ -16,6 +16,15 @@
 
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
+
+}
+
+.bigContainer {
+    position: relative;
+    overflow: hidden;
+    /* حتى لا يخرج الفيديو عن الإطار */
+
 }
 
 body {
@@ -26,10 +35,20 @@ body {
     padding: 20px;
 }
 
+a {
+    color: inherit;
+    /* يخلي لون الرابط نفس لون النص المحيط به */
+    text-decoration: none;
+
+}
+
 .container {
-    max-width: 1200px;
+    position: relative;
+    max-width: 2500px;
     margin: 0 auto;
     padding: 0 20px;
+    background-color: #000000;
+    border-radius: 20PX;
 }
 
 header {
@@ -37,12 +56,51 @@ header {
     padding: 40px 0;
 }
 
-.logo {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+.Header-Title-StartPage {
+    text-align: center;
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+    color: var(--light-color);
+    margin-top: 100px;
+    max-height: 150px;
+    min-height: 140px;
+    /* 👈 يمنع تحرك الصورة عند اختفاء النص */
 }
+
+.Header-Title-StartPage h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+
+}
+
+.Header-Title-StartPage p {
+    font-size: 1.3em;
+    margin-top: 10px;
+    transition: opacity 1.5s ease;
+}
+
+/* مؤثر المؤشر الوامض */
+#typewriter::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* .Header-Title-StartPage h1 {
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+.Header-Title-StartPage p {
+    font-size: 17px;
+} */
+
+
+
 .logo_Qasser {
     width: 200PX;
 }
@@ -55,12 +113,60 @@ header {
     margin-bottom: 50px;
 }
 
-.iconsForArrow  {
-    margin-top:200px ;
+.Header-Container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    padding: 30px;
+    margin-top: 50px;
+    justify-content: center;
 }
-.IconArrowRight , .IconArrowLeft{
+
+.img-Orchid-Flower {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    margin: auto 50%;
+
+}
+
+@media (max-width: 500px) {
+    .Header-Container {
+        margin-top: 100px;
+        height: 300px;
+    }
+    .img-Orchid-Flower {
+        width: 350px;
+        height: 350px;
+        margin: auto 50%;
+
+
+    }
+
+
+}
+/* تنسيقات الجوالات مثل Galaxy S10 و iPhone 12 mini */
+@media (max-width: 380px) {
+    .img-Orchid-Flower {
+        width: 250px;
+        height: 250px;
+        margin: auto 50%;
+
+
+    }
+
+}
+
+.iconsForArrow {
+    margin-top: 200px;
+}
+
+.IconArrowRight,
+.IconArrowLeft {
     width: 100px;
 }
+
 .IconArrowRight {
     width: 100px;
 }
@@ -72,22 +178,28 @@ header {
     margin: 40px 0;
 }
 
-.social-card {
+.social-content {
     background: #F9F5F0;
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px 10px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px var(--primary-color);
     transition: var(--transition);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    /* لأن البطاقة قابلة للنقر */
+    text-decoration: none;
+    /* يشيل الخط من تحت النص */
+    color: inherit;
+    /* يخلي اللون مثل النص العادي */
+
 }
 
-.social-card::before {
+.social-content::before {
     content: '';
     position: absolute;
     top: 0;
@@ -97,16 +209,27 @@ header {
     background: var(--primary-color);
 }
 
-.social-card:hover {
+.social-content:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.effectCyrcle-down::before {
+    content: '';
+    position: absolute;
+    top: -10;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: #c69b9170;
+
 }
 
 .social-icon {
-    font-size: 3.5rem;
+    font-size: 1.0rem;
     margin-bottom: 20px;
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,10 +247,19 @@ header {
     color: #1da1f2;
 }
 
-.instagram .social-icon {
+.social-icon .fab.fa-instagram {
     background: rgba(225, 48, 108, 0.1);
     color: #e1306c;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
 }
+
+@media (max-width: 768px) {}
 
 .youtube .social-icon {
     background: rgba(255, 0, 0, 0.1);
@@ -143,11 +275,15 @@ header {
     background: rgba(0, 0, 0, 0.1);
     color: #000000;
 }
-.snapchat .social-icon {
-    background: rgba(255, 252, 0, 0.15);
+
+/* .fab.fa-snapchat-ghost {
+    width: 70px;
+    height:70px;
+    background: rgb(248, 248, 248);
     color: #FFFC00;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
+    border-radius: 50%;
+} */
 
 
 .social-card:hover .social-icon {
@@ -155,7 +291,7 @@ header {
 }
 
 .social-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -164,6 +300,12 @@ header {
     color: #666;
     margin-bottom: 20px;
     font-size: 1.1rem;
+}
+
+.social-text {
+    position: relative;
+    width: 100%;
+    left: 0;
 }
 
 .social-stats {
@@ -207,6 +349,7 @@ header {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 .snapchat .btn {
     background: #FFFC00;
     color: #000;
@@ -215,11 +358,13 @@ header {
 
 
 footer {
+
     text-align: center;
     padding: 30px 0;
     margin-top: 40px;
     color: #666;
     border-top: 1px solid #eee;
+    font-weight: 700;
 }
 
 .newsletter {
@@ -258,17 +403,26 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: #000000;
+        border-radius: 20PX;
+    }
+
     .social-container {
         grid-template-columns: 1fr;
     }
-    
+
     .newsletter-form {
         flex-direction: column;
     }
-    
+
     .logo {
         font-size: 2rem;
     }
+
 }
 
 /* تأثيرات الظهور عند التمرير */
@@ -283,3 +437,133 @@ footer {
     transform: translateY(0);
 }
 
+
+.social-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .social-icon {
+        font-size: 2.5rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-name {
+        position: relative;
+        font-size: 18px;
+        right: 10px;
+        top: 12px;
+    }
+
+    .social-username {
+        position: relative;
+        font-size: 17px;
+        left: 20px;
+        top: 30px;
+
+    }
+
+}
+
+
+.social-Info {
+    margin-right: 20px;
+    text-align: right;
+}
+
+
+
+/* Map */
+
+.ContainerMap {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.ContainerMap iframe {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.ContainerMap {
+    padding: 40px;
+}
+
+.title-Map {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    z-index: 1;
+}
+
+.title-Map h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.title-Map img {
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .title-Map h1 {
+        font-weight: 400;
+        color: #3a2b1a;
+        /* لون فخم */
+        letter-spacing: 0.5px;
+    }
+
+    .title-Map img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.contentMap {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .ContainerMap {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .title-Map {
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        justify-content: center;
+    }
+    .title-Map h1 {
+        text-align: center;
+        align-content: center;
+    }
+    .title-Map img {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
+
+}
