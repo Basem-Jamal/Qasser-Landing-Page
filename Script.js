@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
-    const text = "بكل حب، نرحّب بأهل قطر وزوارها 🤗";
-    const typewriter = document.getElementById("typewriter");
-    const fadeText = document.getElementById("fadein-text");
-    let i = 0;
-    let typingSpeed = 150; // سرعة الكتابة
+    // const text = "بكل حب، نرحّب بأهل قطر وزوارها 🤗";
+//     const typewriter = document.getElementById("typewriter");
+//     const fadeText = document.getElementById("fadein-text");
+//     let i = 0;
+//     let typingSpeed = 150; // سرعة الكتابة
 
     function typeEffect() {
       if (i < text.length) {
